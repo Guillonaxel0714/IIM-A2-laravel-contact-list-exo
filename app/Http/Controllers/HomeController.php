@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -16,6 +20,9 @@ class HomeController extends Controller
     public function index()
     {
         /* TODO Récupérer tout les utilisateurs, et renvoyer la view "home.blade.php avec les utilisateurs" */
+
+        $users = User::all(); 
+        return view('home');
     }
 }
 
